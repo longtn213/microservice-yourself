@@ -1,0 +1,12 @@
+build:
+  version: "2.0"
+
+accounts:
+  message: "Welcome to South Dragon Bank Accounts related QA APIs"
+  contactDetails:
+    name: "South Dragon QA- QA LEAD"
+    email: "tnamlong2132000@gmail.com"
+  onCallSupport:
+    - 0217654321
+    - 1232031923
+

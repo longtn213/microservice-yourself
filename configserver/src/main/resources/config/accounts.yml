@@ -1,0 +1,13 @@
+
+build:
+  version: "3.0"
+
+accounts:
+  message: "Welcome to South Dragon Bank Accounts related local APIs"
+  contactDetails:
+    name: "South Dragon - Developer"
+    email: "tnamlong2132000@gmail.com"
+  onCallSupport:
+    - 0987654321
+    - 1102031923
+
