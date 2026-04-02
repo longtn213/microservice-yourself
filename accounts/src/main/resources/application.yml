@@ -26,6 +26,11 @@ spring:
     username: guest
     password: guest
 
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
+
 management:
   endpoints:
     web:
@@ -65,3 +70,30 @@ logging:
     com:
       southdragon:
         accounts: DEBUG
+
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      slidingWindowSize: 10
+      permittedNumberOfCallsInHalfOpenState: 5
+      waitDurationInOpenState: 10s
+      failureRateThreshold: 10
+
+resilience4j.retry:
+  configs:
+    default:
+      max-attempts: 3
+      waitDuration: 100ms
+      enableExponentialBackoff: true
+      exponentialBackoffMultiplier: 2
+      ignoreExceptions:
+        - java.lang.NullPointerException
+      retryExceptions:
+        - java.util.concurrent.TimeoutException
+
+resilience4j.ratelimiter:
+  configs:
+    default:
+      limit-for-period: 1
+      limitRefreshPeriod: 5s
+      timeoutDuration: 1s
