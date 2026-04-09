@@ -12,7 +12,7 @@ spring:
               enabled: true
               lower-case-service-id: true
           httpclient:
-            response-timeout: 2s
+            response-timeout: 10s
             connect-timeout: 1
   data:
     redis:
@@ -32,7 +32,9 @@ management:
   info:
     env:
       enabled: true
-
+  metrics:
+    tags:
+      application: ${spring.application.name}
 info:
   app:
     name: "gatewayserver"
