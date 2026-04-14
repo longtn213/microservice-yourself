@@ -2,7 +2,6 @@ package com.southdragon.accounts.controller;
 
 import com.southdragon.accounts.dto.CustomerDetailsDto;
 import com.southdragon.accounts.dto.ErrorResponseDto;
-import com.southdragon.accounts.service.IAccountsService;
 import com.southdragon.accounts.service.ICustomersService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -47,9 +46,9 @@ public class CustomerController {
             @RequestParam
                                                                    @Pattern(regexp = "(^$|[0-9]{10})", message = "Mobile number must be 10 digits")
                                                                    String mobileNumber){
-        logger.debug("South-dragon-correlation-id found: {}", correlationId);
-
+        logger.debug("fetchCustomerDetails method start");
         CustomerDetailsDto customerDetailsDto = customersService.fetchCustomerDetails(mobileNumber, correlationId);
+        logger.debug("fetchCustomerDetails method end");
         return ResponseEntity.ok(customerDetailsDto);
     }
 }
